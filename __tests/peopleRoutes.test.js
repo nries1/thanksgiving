@@ -71,7 +71,7 @@ describe("/api/people routes", () => {
 
         // grab the response
         const isAttendingResponse = await request(app).get(
-          "/api/people/is_attending=true"
+          "/api/people/?is_attending=true"
         );
 
         console.log("FILTERED RESPONSE ", isAttendingResponse.body);

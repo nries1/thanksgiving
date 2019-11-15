@@ -46,7 +46,7 @@ describe('/api/people routes', () => {
               expect(people).toEqual(
                 expect.arrayContaining([
                   expect.objectContaining(person1),
-                  expect.objectContaining(person2),
+                  expect.objectContaining(person2)
                 ])
               );
             })
@@ -63,13 +63,15 @@ describe('/api/people routes', () => {
         await Promise.all([
           Person.create(person1),
           Person.create(person2),
-          Person.create(person3),
+          Person.create(person3)
         ]);
 
         // grab the response
         const isAttendingResponse = await request(app).get(
           '/api/people/?is_attending=true'
         );
+
+        console.log(isAttendingResponse.body);
 
         // test our assertions
         expect(isAttendingResponse.statusCode).toBe(200);
@@ -82,7 +84,7 @@ describe('/api/people routes', () => {
         expect(attendingPeople).toEqual(
           expect.arrayContaining([
             expect.objectContaining(person1),
-            expect.objectContaining(person3),
+            expect.objectContaining(person3)
           ])
         );
 
@@ -98,17 +100,17 @@ describe('/api/people routes', () => {
       }
     });
 
-    it('should return users and their Dishes using `include_dishes=true` query string', async () => {
+    xit('should return users and their Dishes using `include_dishes=true` query string', async () => {
       try {
         const [mark, russell, ryan] = await Promise.all([
           Person.create(person1),
           Person.create(person2),
-          Person.create(person3),
+          Person.create(person3)
         ]);
 
         const [turk, pie] = await Promise.all([
           Dish.create({ ...dish1, personId: mark.id }),
-          Dish.create({ ...dish2, personId: ryan.id }),
+          Dish.create({ ...dish2, personId: ryan.id })
         ]);
         // your code below
       } catch (err) {

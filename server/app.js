@@ -2,13 +2,13 @@
   DO NOT CHANGE THIS FILE!
 */
 
-const express = require("express");
+const express = require('express');
 const app = express();
 
 app.use(express.json());
 
-app.use("/api/people", require("./api/people"));
-app.use("/api/dishes", require("./api/dishes"));
+app.use('/api/people', require('./api/people'));
+app.use('/api/dishes', require('./api/dishes'));
 
 app.use((err, req, res, next) => {
   if (err.status !== 500) {

@@ -8,12 +8,10 @@ const seed = async () => {
     people.map(newPerson => Person.Person.create(newPerson))
   );
   const newDishes = await Promise.all(
-    dishes.map(newDish =>
+    dishes.map((newDish, index) =>
       Dish.Dish.create({
         ...newDish,
-        preparedBy: Number(
-          newPeople[Math.floor(Math.random() * people.length)].id
-        )
+        personId: Number(newPeople[index + 1].id)
       })
     )
   );

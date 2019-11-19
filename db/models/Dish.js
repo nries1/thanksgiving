@@ -9,9 +9,6 @@ const Dish = db.define('dish', {
   description: {
     type: Sequelize.STRING,
     allowNull: false
-  },
-  preparedBy: {
-    type: Sequelize.INTEGER
   }
 });
 
